@@ -17,8 +17,9 @@ class EmailController implements IController {
 
     emails:Array<EmailString>;
     emailString:string;
-
-    constructor() {
+    checker: Function
+    constructor($scope) {
+        this.checker = $scope.checker
         this.emails = new Array<EmailString>()
         this.emailString = "";
     }
@@ -26,7 +27,7 @@ class EmailController implements IController {
     addEmails(emails:string[]):void {
         var newOrder = this.emails.length + 1;
         emails.forEach(element => {
-            this.emails.push(new EmailString(element, this.isValid(element)));
+            this.emails.push(new EmailString(element, this.checker(element)));
         });
     }
 
@@ -38,7 +39,7 @@ class EmailController implements IController {
 
     addEmail(emailString:string):void {
         if (emailString.length > 0) {
-            this.emails.push(new EmailString(emailString, this.isValid(emailString)));
+            this.emails.push(new EmailString(emailString, this.checker(emailString)));
             this.emailString = "";
         }
     }
@@ -66,11 +67,6 @@ class EmailController implements IController {
             ...this.emails.slice(0, $index),
             ...this.emails.slice($index + 1)
         ]
-    }
-
-    isValid(email:string):boolean {
-        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,6})$/;
-        return reg.test(email);
     }
 
     getRandomEmail():string[] {
