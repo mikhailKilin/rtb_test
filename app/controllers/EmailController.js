@@ -40,6 +40,7 @@ class EmailController {
       var subEmailString = this.emailString.substr(0, this.emailString.length - 1)
       this.addEmail(subEmailString)
     } else if ($event.ctrlKey && $event.keyCode === 86) {
+      this.addEmail(this.emailString)
     }
   }
 
