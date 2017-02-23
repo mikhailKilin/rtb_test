@@ -17,7 +17,8 @@ class EmailController implements IController {
 
     emails:Array<EmailString>;
     emailString:string;
-    checker: Function
+    checker:Function
+
     constructor($scope) {
         this.checker = $scope.checker
         this.emails = new Array<EmailString>()
@@ -45,12 +46,15 @@ class EmailController implements IController {
     }
 
     addEmailWithEvent($event:KeyboardEvent):void {
+
         if ($event.keyCode === 13) {
             this.addEmail(this.emailString);
         }
         else if ($event.keyCode === 188) {
             var subEmailString = this.emailString.substr(0, this.emailString.length - 1);
             this.addEmail(subEmailString);
+        } else if ($event.ctrlKey && $event.keyCode === 86) {
+            this.addEmail(this.emailString);
         }
     }
 
@@ -58,11 +62,11 @@ class EmailController implements IController {
         $('#inputFocus', event.target).focus();
     }
 
-    onBlur($event): void {
+    onBlur($event):void {
         this.addEmail(this.emailString)
     }
 
-    deleteEmailString($index: number):void {
+    deleteEmailString($index:number):void {
         this.emails = [
             ...this.emails.slice(0, $index),
             ...this.emails.slice($index + 1)

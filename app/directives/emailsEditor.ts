@@ -1,7 +1,6 @@
-
 import EmailController from '../controllers/EmailController'
 
-export const emailsEditor = (): ng.IDirective => {
+export const emailsEditor = ():ng.IDirective => {
     return {
         restrict: "E",
         controller: EmailController,
@@ -24,8 +23,8 @@ export const emailsEditor = (): ng.IDirective => {
                                ng-blur="ctrl.onBlur($event)"
                                placeholder="add more people..."/>
                     </div>`,
-        scope:{
-            ctrl:"="
+        scope: {
+            ctrl: "="
         }
     }
 }
