@@ -1,6 +1,6 @@
 import EmailController from '../controllers/EmailController'
 
-export const emailsEditor = ():ng.IDirective => {
+export const emailsEditor = () => {
     return {
         restrict: "E",
         controller: EmailController,
