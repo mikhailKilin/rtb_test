@@ -1,5 +1,3 @@
-import * as $ from 'jquery'
-
 interface IController {
     addEmails(emails:string[]):void
     getEmails():string[]
@@ -7,12 +5,10 @@ interface IController {
 
 class EmailString {
     public name:string;
-    public order:number;
     public isValid:boolean;
 
-    constructor(name:string, order:number, isValid:boolean) {
+    constructor(name:string, isValid:boolean) {
         this.name = name;
-        this.order = order;
         this.isValid = isValid;
     }
 }
@@ -28,9 +24,9 @@ class EmailController implements IController {
     }
 
     addEmails(emails:string[]):void {
-        var newOrder = emails.length + 1;
+        var newOrder = this.emails.length + 1;
         emails.forEach(element => {
-            this.emails.push(new EmailString(element, newOrder++, this.isValid(element)));
+            this.emails.push(new EmailString(element, this.isValid(element)));
         });
     }
 
@@ -42,8 +38,7 @@ class EmailController implements IController {
 
     addEmail(emailString:string):void {
         if (emailString.length > 0) {
-            var newOrder = this.emails.length == 0 ? 1 : this.emails[this.emails.length - 1].order + 1;
-            this.emails.push(new EmailString(emailString, newOrder, this.isValid(emailString)));
+            this.emails.push(new EmailString(emailString, this.isValid(emailString)));
             this.emailString = "";
         }
     }
@@ -56,24 +51,21 @@ class EmailController implements IController {
             var subEmailString = this.emailString.substr(0, this.emailString.length - 1);
             this.addEmail(subEmailString);
         }
-        else if(($event.ctrlKey || $event.metaKey) && ($event.which == 86 || $event.which==118)){
-            console.log('ctrl+v')
-        }
     }
 
     setInputFocus(event:MouseEvent):void {
         $('#inputFocus', event.target).focus();
     }
 
-    deleteEmailString(order:number):void {
-        var deleteOrder = 0;
-        for (var i = 0; i < this.emails.length; i++) {
-            if (this.emails[i].order == order) {
-                deleteOrder = i;
-                break;
-            }
-        }
-        this.emails.splice(deleteOrder, 1);
+    onBlur($event): void {
+        this.addEmail(this.emailString)
+    }
+
+    deleteEmailString($index: number):void {
+        this.emails = [
+            ...this.emails.slice(0, $index),
+            ...this.emails.slice($index + 1)
+        ]
     }
 
     isValid(email:string):boolean {

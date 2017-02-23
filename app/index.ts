@@ -1,5 +1,6 @@
 import * as angular from 'angular'
 import './styles/main.scss'
+import './styles/segoe-ui.scss'
 import {emailsEditor} from './directives/emailsEditor'
 import EmailController from './controllers/EmailController'
 
