@@ -1,5 +1,5 @@
 rtb_test
 
-1) npm install
-2) npm run dev
-3) go to localhost:8080
+* npm install
+* npm run dev
+* go to localhost:8080
