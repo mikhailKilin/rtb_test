@@ -16,15 +16,15 @@ class EmailController {
 
   addEmails() {
     let newEmail = this.getRandomEmail()
-    this.emails = [
-      ...this.emails,
-      new EmailString(newEmail, this.checker(newEmail))
-    ]
+    this.addEmail(newEmail)
   }
 
   addEmail(emailString) {
     if (emailString.length > 0) {
-      this.emails.push(new EmailString(emailString, this.checker(emailString)))
+      this.emails = [
+        ...this.emails,
+        new EmailString(emailString, this.checker(emailString))
+      ]
       this.emailString = ""
     }
   }
