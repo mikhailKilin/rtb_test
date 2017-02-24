@@ -14,14 +14,12 @@ class EmailController {
     this.emailString = ""
   }
 
-  addEmails(emails) {
+  addEmails() {
+    let newEmail = this.getRandomEmail()
     this.emails = [
       ...this.emails,
-      ...emails.map(email => new EmailString(email, this.checker(email)))
+      new EmailString(newEmail, this.checker(newEmail))
     ]
-    emails.forEach(element => {
-      this.emails.push()
-    })
   }
 
   addEmail(emailString) {
@@ -66,7 +64,7 @@ class EmailController {
       text += possible.charAt(Math.floor(Math.random() * possible.length))
     }
     text += "@ya.ru"
-    return [text]
+    return text
   }
 
   getEmailsCount() {
