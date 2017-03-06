@@ -15,7 +15,7 @@ class MainController {
     this.emails = []
   }
 
-  addEmails = () => {
+  addEmails(){
     let text = ""
     for (let i = 0; i < Math.floor(Math.random() * possible.length); i++) {
       text += possible.charAt(Math.floor(Math.random() * possible.length))
