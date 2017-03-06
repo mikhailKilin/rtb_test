@@ -33,11 +33,9 @@ class EmailController {
       this.addEmail(this.emailString)
     }
     else if ($event.keyCode === constants.comma) {
-      console.log('188')
       var subEmailString = this.emailString.substr(0, this.emailString.length - 1)
       this.addEmail(subEmailString)
     } else if ($event.ctrlKey && $event.keyCode === constants.letter_v) {
-      console.log('86')
       this.addEmail(this.emailString)
     }
   }
