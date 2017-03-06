@@ -22,10 +22,7 @@ class EmailController {
 
   addEmail(emailString) {
     if (emailString.length > 0) {
-      this.emails = [
-        ...this.emails,
-        new EmailString(emailString, this.checker(emailString))
-      ]
+      this.emails.push(new EmailString(emailString, this.checker(emailString)))
       this.emailString = ""
     }
   }
@@ -54,10 +51,7 @@ class EmailController {
   }
 
   deleteEmailString($index) {
-    this.emails = [
-      ...this.emails.slice(0, $index),
-      ...this.emails.slice($index + 1)
-    ]
+    this.emails.splice($index, 1)
   }
 
   getRandomEmail() {
