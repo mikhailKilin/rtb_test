@@ -1,3 +1,4 @@
+import constants from '../shared/constants'
 class EmailString {
 
   constructor(name, isValid) {
@@ -31,13 +32,15 @@ class EmailController {
 
   addEmailWithEvent($event) {
 
-    if ($event.keyCode === 13) {
+    if ($event.keyCode === constants.enter) {
       this.addEmail(this.emailString)
     }
-    else if ($event.keyCode === 188) {
+    else if ($event.keyCode === constants.comma) {
+      console.log('188')
       var subEmailString = this.emailString.substr(0, this.emailString.length - 1)
       this.addEmail(subEmailString)
-    } else if ($event.ctrlKey && $event.keyCode === 86) {
+    } else if ($event.ctrlKey && $event.keyCode === constants.letter_v) {
+      console.log('86')
       this.addEmail(this.emailString)
     }
   }
