@@ -44,7 +44,7 @@ class EmailController {
     $('#inputFocus', event.target).focus()
   }
 
-  onBlur($event) {
+  onBlur() {
     this.addEmail(this.emailString)
   }
 

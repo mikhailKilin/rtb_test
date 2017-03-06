@@ -8,10 +8,9 @@
 <div class="title">Share "Board name" with others</div>
 <div class="main-div" ng-controller="EmailController as ctrl">
     <emails-editor ctrl="ctrl"></emails-editor>
-    <div class="button-div">
-        <button class="email-button add-email-button" ng-click="ctrl.addEmails()">Add email
-        </button>
-        <button class="email-button get-emails-button" ng-click="ctrl.getEmailsCount()">Get emails count</button>
+    <div class="buttons">
+        <button class="email-button email-button-add" ng-click="ctrl.addEmails()">Add email</button>
+        <button class="email-button email-button-get" ng-click="ctrl.getEmailsCount()">Get emails count</button>
     </div>
 </div>
 </body>

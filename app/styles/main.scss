@@ -12,79 +12,92 @@ body {
   padding: 0px 20px 0px 0px;
   height: 99px;
   background: $background-color;
-  .button-div {
-    width: 100%;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-left: 39px;
-    height: 100px;
-    background: white;
-    .email-button {
-      height: 30px;
-      display: inline-block;
-      position: relative;
-      float: left;
-      border: solid $button-color;
-      margin-right: 20px;
-      background: $button-color;
-      color: white;
-      border-radius: 2px;
-      font-size: 13px;
-    }
-    .add-email-button {
-      padding: 0px 20px 0px 16px;
-    }
-    .get-emails-button {
-      padding: 0px 7px 0px 8px
-    }
-  }
-  .email-container {
-    height: 100%;
-    background: white;
-    overflow-x: auto;
-    border-top: 1px solid #c6c6c6;
-    margin-left: $padding-left;
-    .email-div {
-      border: 1px solid #dae8fe;
-      display: inline-block;
-      position: relative;
-      float: left;
-      border-radius: 15px;
-      background: #dae8fe;
-      padding: 1px 6px 3px 8px;
-      margin: 7px 2px 0px 8px;
-      .close-button {
-        display: inline-block;
-        font-size: 19px;
-        vertical-align: middle;
-        cursor: pointer;
-        margin: -9px 0px -3px 5px;
-        padding-bottom: 0px;
-        color: #000;
-      }
-      .invalid {
-        text-decoration: underline;
-        color: red;
-      }
-      .email-name {
-        display: inline-block;
-        float: left;
-      }
-      .email-under-div {
-        color: black;
-      }
-    }
-    .email-string {
-      border: 0px;
-      padding: 4px;
-      display: inline-block;
-      position: relative;
-      float: left;
-      outline: none;
-      margin: 7px 0px 0px 5px;
-      font-size: 13px;
-    }
-  }
+}
+
+.buttons {
+  width: 100%;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-left: 39px;
+  height: 100px;
+  background: white;
+}
+
+.email-button {
+  height: 30px;
+  display: inline-block;
+  position: relative;
+  float: left;
+  border: solid $button-color;
+  margin-right: 20px;
+  background: $button-color;
+  color: white;
+  border-radius: 2px;
+  font-size: 13px;
+}
+
+.email-button-add {
+  padding: 0px 20px 0px 16px;
+}
+
+.email-button-get {
+  padding: 0px 7px 0px 8px
+}
+
+.directive-container {
+  height: 100%;
+  background: white;
+  overflow-x: auto;
+  border-top: 1px solid #c6c6c6;
+  margin-left: $padding-left;
+}
+
+.email-string {
+  border: 0px;
+  padding: 4px;
+  display: inline-block;
+  position: relative;
+  float: left;
+  outline: none;
+  margin: 7px 0px 0px 5px;
+  font-size: 13px;
+}
+
+.email {
+  border: 1px solid #dae8fe;
+  display: inline-block;
+  position: relative;
+  float: left;
+  border-radius: 15px;
+  background: #dae8fe;
+  padding: 1px 6px 3px 8px;
+  margin: 7px 2px 0px 8px;
+}
+
+.email__div {
+  color: black;
+}
+
+.email__name {
+  display: inline-block;
+  float: left;
+}
+
+.email__name-invalid {
+  display: inline-block;
+  float: left;
+  text-decoration: underline;
+  color: red;
+}
+
+.email__close-button {
+  display: inline-block;
+  font-size: 19px;
+  vertical-align: middle;
+  cursor: pointer;
+  margin: -9px 0px -3px 5px;
+  padding-bottom: 0px;
+  color: #000;
 }
 
 .title {
