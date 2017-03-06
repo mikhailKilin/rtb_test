@@ -18,10 +18,9 @@ class EmailController {
     this.addEmail(string)
     this.emailString = ""
   }
-
+  
   onBlur() {
     this.innerAddEmail(this.emailString)
-    this.emailString = ""
   }
 
   addEmailWithEvent($event) {
@@ -29,7 +28,7 @@ class EmailController {
       this.innerAddEmail(this.emailString)
     }
     else if ($event.keyCode === constants.comma) {
-      var subEmailString = this.emailString.substr(0, this.emailString.length - 1)
+      let subEmailString = this.emailString.substr(0, this.emailString.length - 1)
       this.innerAddEmail(subEmailString)
     } else if ($event.ctrlKey && $event.keyCode === constants.letter_v) {
       this.innerAddEmail(this.emailString)

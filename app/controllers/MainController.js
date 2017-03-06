@@ -1,3 +1,5 @@
+const possible = "abcdefghijklmnopqrstuvwxyz0123456789"
+
 class EmailString {
 
   constructor(name, isValid) {
@@ -14,9 +16,8 @@ class MainController {
   }
 
   addEmails = () => {
-    var text = ""
-    var possible = "abcdefghijklmnopqrstuvwxyz0123456789"
-    for (var i = 0; i < Math.floor(Math.random() * possible.length); i++) {
+    let text = ""
+    for (let i = 0; i < Math.floor(Math.random() * possible.length); i++) {
       text += possible.charAt(Math.floor(Math.random() * possible.length))
     }
     text += "@ya.ru"
