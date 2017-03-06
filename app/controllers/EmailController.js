@@ -1,69 +1,39 @@
 import constants from '../shared/constants'
-class EmailString {
-
-  constructor(name, isValid) {
-    this.name = name
-    this.isValid = isValid
-  }
-}
-
 class EmailController {
-
   constructor($scope) {
-    this.checker = $scope.checker
-    this.emails = []
+    this.addEmail = $scope.addEmail
+    this.deleteEmail = $scope.deleteEmail
     this.emailString = ""
-  }
-
-  addEmails() {
-    let newEmail = this.getRandomEmail()
-    this.addEmail(newEmail)
-  }
-
-  addEmail(emailString) {
-    if (emailString.length > 0) {
-      this.emails.push(new EmailString(emailString, this.checker(emailString)))
-      this.emailString = ""
-    }
-  }
-
-  addEmailWithEvent($event) {
-
-    if ($event.keyCode === constants.enter) {
-      this.addEmail(this.emailString)
-    }
-    else if ($event.keyCode === constants.comma) {
-      var subEmailString = this.emailString.substr(0, this.emailString.length - 1)
-      this.addEmail(subEmailString)
-    } else if ($event.ctrlKey && $event.keyCode === constants.letter_v) {
-      this.addEmail(this.emailString)
-    }
   }
 
   setInputFocus(event) {
     $('#inputFocus', event.target).focus()
   }
 
+  innerDeleteEmail(index) {
+    this.deleteEmail(index)
+  }
+
+  innerAddEmail(string) {
+    this.addEmail(string)
+    this.emailString = ""
+  }
+
   onBlur() {
-    this.addEmail(this.emailString)
+    this.innerAddEmail(this.emailString)
+    this.emailString = ""
   }
 
-  deleteEmailString($index) {
-    this.emails.splice($index, 1)
-  }
-
-  getRandomEmail() {
-    var text = ""
-    var possible = "abcdefghijklmnopqrstuvwxyz0123456789"
-    for (var i = 0; i < Math.floor(Math.random() * possible.length); i++) {
-      text += possible.charAt(Math.floor(Math.random() * possible.length))
+  addEmailWithEvent($event) {
+    if ($event.keyCode === constants.enter) {
+      this.innerAddEmail(this.emailString)
     }
-    text += "@ya.ru"
-    return text
-  }
-
-  getEmailsCount() {
-    alert("Emails count is " + this.emails.length)
+    else if ($event.keyCode === constants.comma) {
+      var subEmailString = this.emailString.substr(0, this.emailString.length - 1)
+      this.innerAddEmail(subEmailString)
+    } else if ($event.ctrlKey && $event.keyCode === constants.letter_v) {
+      this.innerAddEmail(this.emailString)
+    }
   }
 }
 

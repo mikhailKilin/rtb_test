@@ -3,12 +3,14 @@ import html from '../html/inputEmail.html'
 export const emailsEditor = () => {
   return {
     restrict: "E",
-    controller: EmailController,
-    controllerAs: 'ctrl',
     template: html,
     scope: {
-      ctrl: "="
-    }
+      emails: "=",
+      addEmail: "=",
+      deleteEmail: '='
+    },
+    controller: EmailController,
+    controllerAs: 'emailCtrl'
   }
 }
 

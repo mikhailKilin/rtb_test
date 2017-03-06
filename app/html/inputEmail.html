@@ -1,16 +1,16 @@
 <div class="directive-container"
-     ng-click="ctrl.setInputFocus($event)">
-    <div class="email" ng-repeat="email in ctrl.emails track by $index">
+     ng-click="emailCtrl.setInputFocus($event)">
+    <div class="email" ng-repeat="email in emails track by $index">
         <div class="{{email.isValid ? 'email__name' : 'email__name-invalid'}}">
             <div class="email__div">{{email.name}}</div>
         </div>
-        <div ng-click="ctrl.deleteEmailString($index)" class="email__close-button">&#xD7</div>
+        <div ng-click="emailCtrl.innerDeleteEmail($index)" class="email__close-button">&#xD7</div>
     </div>
     <input id="inputFocus"
            type="text"
            class="email-string"
-           ng-model="ctrl.emailString"
-           ng-keyup="ctrl.addEmailWithEvent($event)"
-           ng-blur="ctrl.onBlur($event)"
+           ng-model="emailCtrl.emailString"
+           ng-keyup="emailCtrl.addEmailWithEvent($event)"
+           ng-blur="emailCtrl.onBlur()"
            placeholder="add more people..."/>
 </div>
