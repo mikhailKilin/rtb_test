@@ -1,3 +1,5 @@
+'use strict'
+
 const possible = "abcdefghijklmnopqrstuvwxyz0123456789"
 
 class MainController {

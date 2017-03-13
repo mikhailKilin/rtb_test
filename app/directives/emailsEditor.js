@@ -1,3 +1,5 @@
+'use strict'
+
 import EmailController from '../controllers/EmailController'
 import html from '../html/inputEmail.html'
 export const emailsEditor = () => {

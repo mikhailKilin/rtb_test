@@ -1,3 +1,5 @@
+'use strict'
+
 import constants from "../shared/constants";
 
 class EmailController {
