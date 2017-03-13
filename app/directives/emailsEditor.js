@@ -5,9 +5,7 @@ export const emailsEditor = () => {
     restrict: "E",
     template: html,
     scope: {
-      emails: "=",
-      addEmail: "=",
-      deleteEmail: '='
+      emails: "="
     },
     controller: EmailController,
     controllerAs: 'emailCtrl'

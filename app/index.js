@@ -8,5 +8,5 @@ import emailChecker from './services/emailChecker'
 let app = angular.module('app', [])
   .service('checkerService', emailChecker)
   .directive('emailsEditor', emailsEditor)
-  .controller('EmailController', EmailController)
-  .controller('MainController', ["checkerService", (checkerService) => new MainController(checkerService)])
+  .controller('EmailController', ["checkerService", (checkerService) => {new EmailController(checkerService)}])
+  .controller('MainController', MainController)
